@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const connectToDB = (url = 'mongodb://localhost/done') => {
-  return mongoose.connect(url)
+  return mongoose.connect(url, { useNewUrlParser: true })
 }
 
 module.exports = connectToDB
