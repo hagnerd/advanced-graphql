@@ -2,14 +2,14 @@ const Octokit = require("@octokit/rest");
 
 let octokit;
 if (process.env.NODE_ENV !== "testing") {
-  octokit.authenticate({
+  Octokit({
     auth: process.env.GITHUB_TOKEN
   });
 }
 
 const reposForOrg = () => {
   return octokit.repos
-    .getForOrg({
+    .listForOrg({
       org: "tipeio",
       type: "public"
     })
