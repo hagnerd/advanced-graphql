@@ -1,7 +1,9 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const connectToDB = (url = 'mongodb://localhost/done') => {
-  return mongoose.connect(url, { useNewUrlParser: true })
-}
+const connectToDB = (url = "mongodb://localhost/done") => {
+  mongoose.connect(url, { useNewUrlParser: true });
+  mongoose.set("useCreateIndex", true);
+  return mongoose;
+};
 
-module.exports = connectToDB
+module.exports = connectToDB;
